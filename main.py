@@ -7,9 +7,9 @@ app=Flask(__name__)
 def Hola_mundo():
   return "Esta API te ayudará a sumar, restar, multiplicar y dividr"
 
-@app.route("Suma/<numerouno>/<numerodos>")
+@app.route("/Suma/<numerouno>/<numerodos>")
 def Multiplicacion(numerouno, numerodos):
-  Resultado=int(numerouno)*(numerodos)
+  Resultado=int(numerouno)*int(numerodos)
   return f"El resultado es {Resultado}"
 
 if __name__=="__main__":
