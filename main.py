@@ -10,7 +10,7 @@ def Hola_mundo():
 @app.route("Suma/<numerouno>/<numerodos>")
 def Multiplicacion(numerouno)(numerodos):
   Resultado=int(numerouno)*(numerodos)
-  return f"El resultado es {Resultado}
+  return f"El resultado es {Resultado}"
 
 if __name__=="__main__":
   app.run()
