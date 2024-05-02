@@ -3,35 +3,33 @@ from flask import Flask
 
 app=Flask(__name__)
 
-base=pd.read_excel("BasePokemon.xlsx")
+base=pd.read_excel("prueba.xlsx")
 
 @app.route("/")
 def Principal():
-    return "Esta es una Api que te muestra pokemons"
+    return "Esta es una Api que te muestra alumnos"
 
-@app.route("/Por_Numero/<Numero>")
-def PorNumero(Numero):
-  Numero=int(Numero)
-  fila=base[base["Numero"]==Numero]
-  respuesta=f"El pokemon {Numero} es {fila.loc}"
+@app.route("/Por_Nombre/<Nombre>")
+def PorNombre(Nombre):
+  fila=base[base["Nombre"]==Nombre]
+  respuesta=f"El nombre del alumno es {fila.loc[:,'Nombre']}"
   return respuesta
 
-print (PorNumero(3))
+print (PorNombre(1))
 
-@app.route("/Por_Tipo/<Tipo>")
-def PorTipo(Tipo):
-  resultados=base[base["Tipo"]==Tipo]
+@app.route("/Por_Edad/<Edad>")
+def PorEdad(Edad):
+  resultados=base[base["Edad"]==Edad]
+    Edad=int(Edad)
   resultados=str(resultados)
   return resultados
 
-print (PorTipo(Planta))
+print (PorEdad(Edad))
 
-@app.route("/Por_Peso/<Peso1>/<Peso2>")
-def PorPeso(Peso1,Peso2):
-  Peso1=float(Peso1)
-  Peso2=float(Peso2)
-  resultados=base[base["Peso"]<Peso]
+@app.route("/Por_Estado/<Estado>")
+def PorEstado(Estado):
+  resultados=base[base["Estado"]==Estado]
   resultados=str(resultados)
   return resultados
 
-print (PorPeso(30))
+print (PorEstado(1))
