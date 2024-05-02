@@ -1,16 +1,37 @@
-# -*- coding: utf-8 -*-
+import pandas as pd
 from flask import Flask
 
 app=Flask(__name__)
 
+base=pd.reas_excel("BasePokemon.xlsx")
+
 @app.route("/")
-def Hola_mundo():
-  return "Esta API te ayudará a sumar, restar, multiplicar y dividr"
+def Principal():
+    return "Esta es una Api que te muestra pokemons"
 
-@app.route("/Suma/<numerouno>/<numerodos>")
-def Multiplicacion(numerouno, numerodos):
-  Resultado=int(numerouno)*int(numerodos)
-  return f"El resultado es {Resultado}"
+@app.route("/Por_Numero/<Numero>")
+def PorNumero(Numero):
+  Numero=int(Numero)
+  fila=base[base["Numero"]==Numero]
+  respuesta=f"El pokemon {Numero} es {fila.loc}"
+  return respuesta
 
-if __name__=="__main__":
-  app.run()
+print (PorNumero(3))
+
+@app.route("/Por_Tipo/<Tipo>")
+def PorTipo(Tipo):
+  resultados=base[base["Tipo"]==Tipo]
+  resultados=str(resultados)
+  return resultados
+
+print (PorTipo(Planta))
+
+@app.route("/Por_Peso/<Peso1>/<Peso2>")
+def PorPeso(Peso1,Peso2):
+  Peso1=float(Peso1)
+  Peso2=float(Peso2)
+  resultados=base[base["Peso"]<Peso]
+  resultados=str(resultados)
+  return resultados
+
+print (PorPeso(30))
