@@ -3,7 +3,7 @@ from flask import Flask
 
 app=Flask(__name__)
 
-base=pd.reas_excel("BasePokemon.xlsx")
+base=pd.read_excel("BasePokemon.xlsx")
 
 @app.route("/")
 def Principal():
