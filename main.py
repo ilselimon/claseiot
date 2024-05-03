@@ -7,7 +7,7 @@ base=pd.read_excel("Alumnos de Hogwarts.xlsx")
 
 @app.route("/")
 def Principal():
-    return "Esta es una Api que te muestra alumnos de Hogwarts"
+    return "Esta es una API que te muestra información de alumnos de Hogwarts inscritos en 1990."
 
 @app.route("/Por_Alumno/<Alumno>")
 def PorAlumno(Alumno):
