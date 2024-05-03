@@ -15,24 +15,18 @@ def PorNombre(Nombre):
   respuesta=f"El nombre del alumno es {fila.loc[:,'Nombre']}"
   return respuesta
 
-print (PorNombre())
-
 @app.route("/Por_Edad/<Edad>")
 def PorEdad(Edad):
-  resultados=base[base["Edad"]==Edad]
   Edad=int(Edad)
+  resultados=base[base["Edad"]==Edad]
   resultados=str(resultados)
   return resultados
-
-print (PorEdad())
 
 @app.route("/Por_Estado/<Estado>")
 def PorEstado(Estado):
   resultados=base[base["Estado"]==Estado]
   resultados=str(resultados)
   return resultados
-
-print (PorEstado())
 
 if __name__=="__main__":
   app.run()
