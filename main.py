@@ -12,8 +12,8 @@ def Principal():
 @app.route("/Por_Nombre/<Nombre>")
 def PorNombre(Nombre):
   fila=base[base["Nombre"]==Nombre]
-  respuesta=str (f"El nombre del alumno es {fila.loc[:,'Nombre']}")
-  return respuesta
+  resultados=f"El nombre del alumno es {fila.loc[:,'Nombre']}")
+  return resultados
 
 @app.route("/Por_Edad/<Edad>")
 def PorEdad(Edad):
